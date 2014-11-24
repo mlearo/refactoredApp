@@ -1,0 +1,141 @@
+html {
+  background-color: grey;
+  background: url(' http://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Grass-Grounds-Coverings-PNG-Clipart/Grass_Element_PNG_Clipart_Picture.png?m=1399681002')  repeat-y center center fixed; ;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  height:100%;
+  opacity: .9;
+
+  font-family: Oswald;
+}
+
+
+body { 
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+    margin-top: 10%;
+    border: none;
+    border-radius: 20%;
+    background: none;
+    
+}
+
+
+			/*				Container structure							*/
+
+
+#mainSelection {
+	width:100%;
+	height:90%;
+	margin: 0 auto;
+	margin-top: 30px;
+
+
+
+}
+
+
+.choice {
+	background-color: white;
+	border:solid black 8px;
+	border-radius: 20px;
+	height: 200px;
+	width: 240px;
+	padding-top: 5%;
+	margin: 6%;
+	text-align: center;
+	box-shadow: inset 0 0 1em #5ae637, 0 0 2em black;
+}
+	
+
+	.choice > a,
+	#homeIcon {
+		font: 22px Oswald;
+		margin: 0 auto;
+		color: black;
+		font-weight: 600;		
+	}
+
+
+#title {
+	text-align: center;
+	font-family: Oswald;
+	font-size: 72px;
+	font-weight: 600;
+	color: #0a0a0a;
+
+}
+
+
+
+		/*				Invoice page         			    */
+
+
+#customerInvoice {
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	border: solid black 2px;
+	box-shadow: 4px 2px 4px black;
+	margin: 0 auto;
+	margin-top: 20px;
+	
+}
+
+
+.columnSpacing {
+	padding-left: 10%;
+	text-align: center;
+}
+
+
+#customerAddress {
+	padding-left: 40px;
+	margin-top: 200px;
+}
+
+
+	#customerAddress > li {
+		list-style: none;
+	}
+
+
+
+		/*			Weekly Schedule Page	& Invoice Page	*/
+.accordionOutline {
+	width: 60%;
+}
+
+
+#scheduleOutline {
+	width:600px;
+	height: 700px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: white;
+	border: solid black 2px;
+
+	box-shadow: 4px 2px 4px black;
+	-mox-box-shadow: 4px 2px 4px black;
+	-webkit-box-shadow:4px 2px 4px black;
+}
+
+.table > th {
+	font-size: 14px black;
+	font-weight: 600;
+}
+
+
+#accordion {
+	margin: 0 auto;
+}
+
+
+.subTitle {
+	font: 18px black;
+	font-weight: 600;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<% include partials/header.ejs %>
+		<script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+	</head>
+		
+		
+		<body>
+			<h1 id='title'> Technician Weekly Schedule </h1><a id="homeIcon"href="/" style="font-size: 24px"><i class="fa fa-home"></i>Main Menu</a>
+			
+			<div  id='accordion' class='accordionOutline'>
+				<%technicians.forEach(function(tech){ %>
+				<h3> Technician Name: <%= tech.technician_name %> ------ Work Week : <%= workweek %> </h3>
+			
+		
+				
+			<div id='scheduleOutline'> 
+				<%if(customers.length > 0) {%>
+					<% customers.forEach(function(customer){ %>
+						<% if(customer.technician_id === tech.technician_id) { %>	
+							<% if(schedule.length > 0) {%>
+								<% schedule.forEach(function(customerSchedule) { %>
+									<% if (customerSchedule.customer_id === customer.customer_id){%>
+			<p>
+				<table class='table table-striped' >
+					<tr>
+						<th class='columnSpacing'>Service Date</th>
+						<th class='columnSpacing'>Customer Name</th>
+						<th class='columnSpacing'>Customer Address</th>
+					</tr>
+					<tr >
+						<td id='serviceDate' class='columnSpacing'><%= customerSchedule.service_date %></td>
+						<td id='customerName' class='columnSpacing'><%= customer.customer_lastname %>, <%= customer.customer_firstname %> </td>
+						<td id='customerAddress' class='columnSpacing'><%= customer.customer_address %> </br> <%= customer.customer_city %> </br> <%= customer.customer_zipcode %></td>
+					</tr>
+
+				</table>
+			</p>
+								<% } %>
+							<% }) %>
+						<% } %>
+					<% } %>
+				<% }) %>
+			<% } %>
+			</div>
+			<% }) %>
+						
+		</div>
+		
+	</body>
+</html>

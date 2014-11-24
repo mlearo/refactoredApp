@@ -1,0 +1,171 @@
+html {
+  background-color: grey;
+  background: url(' http://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Grass-Grounds-Coverings-PNG-Clipart/Grass_Element_PNG_Clipart_Picture.png?m=1399681002')  repeat-y center center fixed; ;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity: .96;
+}
+
+
+body {
+  box-shadow: 10px 5px 10px black;
+  background-color: white;
+  border: solid black 3px;
+  border-radius: 10%;
+  width:50%;
+  height:90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+
+h1 {
+  //color:#0dd4cf!important; 
+  margin-top:20%;
+
+  text-align:center;
+  font:70px Oswald;
+
+
+  text-shadow: 4px 2px 3px #79997e ,
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+
+p {
+  color:#FFF;
+  text-align:center;
+  font:15px Lobster;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+
+.wrap {
+  width:430px;
+  margin:0 auto;
+}
+
+
+input {
+  width:100%;
+  padding:10px;
+  margin-bottom:20px;
+  border-radius:5px;
+  border:none;
+  outline:none;
+  font:13px Raleway;
+  font-weight: 700;
+  font-color: #000000;
+  opacity: .9;
+  
+}
+
+
+input[type="submit"] {
+ // background:#0D98FB;
+ background: #4f4e4e;
+  color:#FFF;
+  width:100%;
+  padding:15px;
+  font-weight:700;
+  opacity:0.9;
+}
+
+
+input[type="submit"]:hover {
+  cursor:pointer;
+  opacity:.9;
+  background:#FF9B1A;
+}
+
+
+input:focus::-webkit-input-placeholder { 
+  color:transparent; 
+}
+
+
+input:focus:-moz-placeholder { 
+  color:transparent; 
+  } /* FF 4-18 */
+
+
+input:focus::-moz-placeholder { 
+  color:transparent; 
+  } /* FF 19+ */
+
+
+input:focus:-ms-input-placeholder {
+  color:transparent; 
+  } /* IE 10+ */
+
+
+input[type="text"]:focus {
+  border-left:5px solid #3FBBBF;
+  -webkit-transition:0.4s ease;
+}
+
+
+input[type="email"]:focus {
+  border-left:5px solid #3FBBBF;
+  -webkit-transition:0.4s ease;
+}
+
+
+input[type="password"]:focus {
+  border-left:5px solid #3FBBBF;
+  -webkit-transition:0.4s ease;
+}
+
+
+a {
+  font:13px Raleway;
+  color:#FFF;
+  color: black;
+  font-weight:700;
+  text-decoration:none;
+  opacity:0.9;
+}
+
+
+a[id=homeIcon]:hover {
+  opacity:.9;
+  color:#FF9B1A;
+}
+
+
+a[id=homeIcon]:focus{ 
+  opacity:.9;
+  color:#FF9B1A;
+}
+
+
+ 
+
+
+#zipcodeInput, 
+#cityInput,
+#firstNameInput,
+#lastNameInput,
+#phoneNumberInput, 
+#emailInput {
+  width:49.5%;
+  display:inline;
+}
+
+#addressInput {
+  width:99.5%;
+}
+
+
+
