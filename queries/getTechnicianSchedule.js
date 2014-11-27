@@ -50,7 +50,7 @@ var getCustomerInfo = function getCustomerInfo(req, res, next){
 
 var getCustomerScheduleInformation = function getCustomerScheduleInformation(req, res, next){
 
-	var weeklyScheduleInformationQuery = "SELECT scheduledServices.service_date, scheduledServices.customer_id FROM scheduledServices WHERE scheduledServices.service_date >= '" + monday + "' AND scheduledServices.service_date <= '" + sunday + ";'";
+	var weeklyScheduleInformationQuery = "SELECT scheduledServices.service_date, scheduledServices.customer_id FROM scheduledServices WHERE scheduledServices.service_date >= '" + testStartDate + "' AND scheduledServices.service_date <= '" + testEndDate + ";'";
 
 	connection.query(weeklyScheduleInformationQuery, function(err, schedule){
 		if(err) {
@@ -60,7 +60,6 @@ var getCustomerScheduleInformation = function getCustomerScheduleInformation(req
 		res.locals.schedule = schedule;
 		console.log(schedule);
 		res.render('technicianWeeklySchedule', {technicians: res.locals.technicianInformation, customers: res.locals.customers, schedule: res.locals.schedule, workweek: workWeek});
-		//res.render('test', {technicians: res.locals.technicianInformation, customers: res.locals.customers, schedule: res.locals.schedule, workweek: workWeek});
 
 	});
 }

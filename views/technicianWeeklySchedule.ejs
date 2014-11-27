@@ -2,25 +2,21 @@
 <html>
 	<head>
 		
-		<% include partials/header.ejs %>
-		<script>
-  $(function() {
-    $( "#accordion" ).accordion();
-  });
-  </script>
+		<% include partials/header.ejs%>
 	</head>
 		
 		
 		<body>
-			<h1 id='title'> Technician Weekly Schedule </h1><a id="homeIcon"href="/" style="font-size: 24px"><i class="fa fa-home"></i>Main Menu</a>
+			<h1 id='title'>  </h1><a href="/"><i class="fa fa-home"></i>Main Menu</a>
 			
-			<div  id='accordion' class='accordionOutline'>
+			<div  class='accordionOutline'>
 				<%technicians.forEach(function(tech){ %>
-				<h3> Technician Name: <%= tech.technician_name %> ------ Work Week : <%= workweek %> </h3>
+				
 			
 		
 				
 			<div id='scheduleOutline'> 
+				<h3> Technician Name: <%= tech.technician_name %> ------ Work Week : <%= workweek %> </h3>
 				<%if(customers.length > 0) {%>
 					<% customers.forEach(function(customer){ %>
 						<% if(customer.technician_id === tech.technician_id) { %>	
@@ -33,11 +29,13 @@
 						<th class='columnSpacing'>Service Date</th>
 						<th class='columnSpacing'>Customer Name</th>
 						<th class='columnSpacing'>Customer Address</th>
+						<th class='columnSpacing'>Time</th>
 					</tr>
 					<tr >
 						<td id='serviceDate' class='columnSpacing'><%= customerSchedule.service_date %></td>
 						<td id='customerName' class='columnSpacing'><%= customer.customer_lastname %>, <%= customer.customer_firstname %> </td>
 						<td id='customerAddress' class='columnSpacing'><%= customer.customer_address %> </br> <%= customer.customer_city %> </br> <%= customer.customer_zipcode %></td>
+						<td id='serviceTime' class='columnSpacing'>TBD</td>
 					</tr>
 
 				</table>

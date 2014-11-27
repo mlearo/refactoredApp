@@ -17,9 +17,9 @@ module.exports.customerExists = function customerExists(req, res){
 	connection.query("SELECT * FROM customer WHERE customer_email = '" + req.body.email + "'", function(err, rows) {
         if (err) {
         	console.log(err); 
-            res.redirect('addNewCustomer');
+            res.render('addNewCustomer',{customerExists: "There was an error processing your requrest, please try again."});
         } 	
-        (rows.length) ? (req.locals.customerExists = "Customer is already signed up"): assignTechnician(req, res); 
+        (rows.length) ? res.render('addNewCustomer',{customerExists:  "Customer is already signed up. Please review customer list."}) : assignTechnician(req, res);        
 	});
 };
 
@@ -30,11 +30,14 @@ module.exports.customerExists = function customerExists(req, res){
 var assignTechnician = function assignTechnician(req, res){
 
 	connection.query('SELECT technician.technician_id, count(customer.technician_id) as number_of_customers FROM technician left join customer on (technician.technician_id = customer.technician_id) group by technician.technician_id', function(err, rows){
+        if(err) {
+            console.log(err);
+            res.render('addNewCustomer', {customerExists: "There was an error processing your requrest, please try again."});
+        }
         res.locals.techWithLeastCustomers = rows.reduce(function(tech1, tech2){
             return (tech1.number_of_customers < tech2.number_of_customers) ? tech1 :  tech2;
         });
         insertNewCustomer(req, res);
-
 	});
 };
 
@@ -47,15 +50,17 @@ var insertNewCustomer = function insertNewCustomer(req, res){
 	connection.query(insertQuery,function(err, rows) {
         if(err) { 
             console.log(err);
-            res.redirect('/addNewCustomer');
+            res.render('/addNewCustomer',{customerExists: "There was an error processing your requrest, please try again."});
         }
 
         connection.query("SELECT * FROM customer WHERE customer_id = '" + rows.insertId + "'", function(err, rows) { 
             if(err) { 
                 console.log(err + " unable to located that customer by his/her customer_id");
+                res.render('addNewCustomer',{customerExists: "There was an error processing your requrest, please try again."})
             } else {
                 scheduleNextServiceDate.scheduleNextServiceDate(rows[0]);
-                res.redirect('/');
+                res.render('home', {customerSuccessfullyAdded: true});
+
             }
         })
     });

@@ -23,13 +23,17 @@ var amountDue = "$20.00"; // cost of each service
 
 
 
-//  gets all customer invoices from the prior month. Thus, whenever you visit the invoive page it will be for the current invoice period
+/*  Gets all customer invoices from the prior month. 
+	Thus, whenever you visit the invoive page it 
+	will be for the current invoice period.
+---------------------------------------------------------  */
+
 module.exports.getCustomerInvoices = function getCustomerInvoices(req, res){
 
 	connection.query(getAllCustomers, function(err, customers){
 		if(err){
 			console.log(err + "there was an error retrieving the customer invoices");
-			res.redirect('/');
+			res.render('home',{invoiceError: true});
 		}
 		res.locals.customers = customers;
 		
@@ -38,7 +42,7 @@ module.exports.getCustomerInvoices = function getCustomerInvoices(req, res){
 		connection.query(currentCustomersServiceBill, function(err, info){		
 			if(err) {
 				console.log(err);
-				res.redirect('/');
+				res.render('home', {invoiceError: true});
 			} else {
 				res.locals.serviceInfo = info;
 				res.render('customerInvoices', {customers: res.locals.customers, statementPeriod: statementPeriod, serviceInfo: res.locals.serviceInfo, billDueDate: billDueDate, amountDue: amountDue});
@@ -46,8 +50,6 @@ module.exports.getCustomerInvoices = function getCustomerInvoices(req, res){
 		});		
 	});
 }
-
-
 
 
 

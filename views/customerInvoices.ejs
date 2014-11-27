@@ -1,48 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
 		<% include partials/header.ejs %>
-
-			<script>
-  $(function() {
-    $( "#accordion" ).accordion();
-  });
-  </script>
 
 	</head>
 		<body>
-			<!-- 
-			<div id='customerList'>
-				<select id='customerIds'>
-					<% customers.forEach(function(customer) {%>
-					<option> <%= customer.customer_id %></option>
-					<%})%>
-				</select>
-				<table>
-					<tr>
-						<th class='columnSpacing' >Customer Name</th>
-						<th class='columnSpacing' >Customer Id</th>
-					</tr>
-				<tr><%customers.forEach(function(customer) {%>
-					<td class='columnSpacing' ><%= customer.customer_lastname %>, <%= customer.customer_firstname %> </td>
-					<td class='columnSpacing' ><%= customer.customer_id %></td>
-				</tr><%})%>
-			</table>
-		</div>
-		-->
 
-			<h1 id='title'> Customer Invoices </h1><a id='homeIcon' href='/' ><i class='fa fa-home'></i>Main Menu</a>
+			<!-- <h1 id=''> Customer Invoices </h1> --><a href='/' ><i class='fa fa-home'></i>Main Menu</a>
 
-			<div  id='accordion' class='accordionOutline'>
+			<div  class='accordionOutline'>
 				<%customers.forEach(function(customer){%>
-					
-					<h3> Statement Period: <%= statementPeriod %>
-					     Customer: <%= customer.customer_lastname %>, <%= customer.customer_firstname %> </h3>
-				
-			
+
 					
 			<div id='scheduleOutline'>
+				<h3> Statement Period: <%= statementPeriod %></br>
+					 Customer: <%= customer.customer_lastname %>, <%= customer.customer_firstname %> </h3>
 				<% serviceInfo.forEach(function(service){%>
 				<%if((customer.customer_id === service.customer_id)) {%>
 				<p>
@@ -51,11 +23,13 @@
 							<th class='columnSpacing'>Service Date</th>
 							<th class='columnSpacing'>Amount Due</th>
 							<th class='columnSpacing'>Date Due</th>
+						
 						</tr>
 						<tr >
 							<td id='serviceDate' class='columnSpacing'><%= service.service_date %></td>
 							<td id='amountDue' class='columnSpacing'><%= amountDue %></td>
 							<td id='dueDate' class='columnSpacing'><%= billDueDate %></td>
+						
 						</tr>
 
 					</table>
@@ -65,7 +39,7 @@
 			
 				
 			
-			<ul id='customerAddress'>
+			<ul id='address'>
 				<li><%= customer.customer_firstname %> <%= customer.customer_lastname %> </li>
 				<li><%= customer.customer_address %></li>
 				<li><%= customer.customer_city %>, <%= customer.customer_state %>, <%= customer.customer_zipcode %></li>

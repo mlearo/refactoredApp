@@ -14,10 +14,8 @@ html {
 
 
 body { 
-	width: 100%;
-	height: 100%;
 	margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
     border: none;
     border-radius: 20%;
     background: none;
@@ -70,72 +68,31 @@ body {
 
 }
 
-
-
-		/*				Invoice page         			    */
-
-
-#customerInvoice {
-	height: 100%;
-	width: 100%;
-	background-color: white;
-	border: solid black 2px;
-	box-shadow: 4px 2px 4px black;
-	margin: 0 auto;
-	margin-top: 20px;
-	
-}
-
-
-.columnSpacing {
-	padding-left: 10%;
-	text-align: center;
-}
-
-
-#customerAddress {
-	padding-left: 40px;
-	margin-top: 200px;
-}
-
-
-	#customerAddress > li {
-		list-style: none;
-	}
-
-
-
-		/*			Weekly Schedule Page	& Invoice Page	*/
-.accordionOutline {
-	width: 60%;
-}
-
-
 #scheduleOutline {
-	width:600px;
-	height: 700px;
-	margin: 0 auto;
-	margin-top: 10px;
+	font-family: Oswald;
+	height: 842px; /* print as letter*/
+	width: 595px;
+	//height: 297mm;/* print as A4 */
+	//width:210mm;
 	background-color: white;
 	border: solid black 2px;
-
 	box-shadow: 4px 2px 4px black;
-	-mox-box-shadow: 4px 2px 4px black;
-	-webkit-box-shadow:4px 2px 4px black;
-}
-
-.table > th {
-	font-size: 14px black;
-	font-weight: 600;
-}
-
-
-#accordion {
 	margin: 0 auto;
+	margin-top: 0;
+	margin-left:auto;
+	margin-right: auto;
 }
 
 
-.subTitle {
-	font: 18px black;
-	font-weight: 600;
+#address {
+	list-style: none;
+	float: right;
+	margin-right:25%;
+	margin-top: 65%;
 }
+
+
+h3 {
+	padding-left:1%;
+}
+

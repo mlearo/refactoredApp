@@ -4,7 +4,7 @@ $(document).ready(function(){
 	
     var isEmpty = /^\s*$/ ;
     var usernameRegex = /^[a-zA-Z0-9\-\_\@\.]+$/; //declare username validation regex
-    var nameRegex = /^[a-zA-Z\-*]+$/;
+    var nameRegex = /^[a-zA-Z\-\s]+$/;
     var phoneNumberRegex = /^[0-9\-]/;
     var addressRegex =  /^[a-zA-Z0-9\-\#\s\.]+$/;
 
@@ -23,21 +23,31 @@ $(document).ready(function(){
       })})(); 
 
     (function(){ 
+        $('#cityInput').keyup(function(){
+            ((!nameRegex.test($('#cityInput').val())) && (!isEmpty.test($('#cityInput').val()))) ? $('#cityInput'). attr("style", "border:inset red 2px"): $('#cityInput').attr("style", "border:inset #66FF00 2px");
+            if(isEmpty.test($('#cityInput').val())) $('#cityInput').css("border", "");
+    })})();   
+
+    (function(){ 
          $('#addressInput').keyup(function(){
             ((!addressRegex.test($('#addressInput').val())) && (!isEmpty.test($('#addressInput').val()))) ? $('#addressInput'). attr("style", "border:inset red 2px"): $('#addressInput').attr("style", "border:inset #66FF00 2px");
             if(isEmpty.test($('#addressInput').val())) $('#addressInput').css("border", "");
       })})();  
 
+    (function(){ 
+         $('#zipcodeInput').keyup(function(){
+            ((!phoneNumberRegex.test($('#zipcodeInput').val())) && (!isEmpty.test($('#zipcodeInput').val()))) ? $('#zipcodeInput'). attr("style", "border:inset red 2px"): $('#zipcodeInput').attr("style", "border:inset #66FF00 2px");
+            if(isEmpty.test($('#zipcodeInput').val())) $('#zipcodeInput').css("border", "");
+    })})();    
 
-     (function(){ 
-         $('#phoneNumberInput').keyup(function(){
-            ((!phoneNumberRegex.test($('#phoneNumber').val())) && (!isEmpty.test($('#phoneNumber').val()))) ? $('#phoneNumber'). attr("style", "border:inset red 2px"): $('#phoneNumber').attr("style", "border:inset #66FF00 2px");
-            if(isEmpty.test($('#phoneNumber').val())) $('#phoneNumber').css("border", "");
-      })})();       
+    (function(){ 
+        $('#phoneNumberInput').keyup(function(){
+            ((!phoneNumberRegex.test($('#phoneNumberInput').val())) && (!isEmpty.test($('#phoneNumberInput').val()))) ? $('#phoneNumberInput'). attr("style", "border:inset red 2px"): $('#phoneNumberInput').attr("style", "border:inset #66FF00 2px");
+            if(isEmpty.test($('#phoneNumberInput').val())) $('#phoneNumberInput').css("border", "");
+    })})();       
 
-
-    
-    
+    // Could code the above in a more efficient way, refactor when time permits
+   
 
     // retrieves selected customers rendered services information from the current billing period.
     /*$("#customerIds").change(function(){

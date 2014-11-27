@@ -8,34 +8,33 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,700,900,300,100' rel='stylesheet' type='text/css'>
 
-    
   </head>
-  <body >
-  
+  <body > 
 
-
-    <div class="overlay">
+    <div class="overlay">  <!-- Start of main content container -->
     	<div class="wrap">
-        		<form action="/signup" method="post">    
-          			<h1>Add New Customer</h1>
-
-			        <input class="form-control" autofocus="true" id="firstNameInput" type="text" required="true" placeholder="First Name" name="firstname"/> 
-			        <input class="form-control" autofocus="false" id="lastNameInput" type="text" required="true" placeholder="Last Name" name="lastname"/>
-			        <input class="form-control" id="addressInput" type="text" required="true" placeholder="Address" name="address"/>
-			        <input class="form-control" id="cityInput" type="text" required="true" placeholder="City" name="city"/>
-			        <input class="form-control" id="zipcodeInput" type="text" required="true" placeholder="Zip" name="zipcode"/>
-
-			        <input class="form-control" id="phoneNumberInput" type="text" required="true" placeholder="Phone Number" name="phonenumber"/>
-			        <input class="form-control" id="emailInput" required="true" type="email" name="email" placeholder="Email Address">
-			        
-			        <input type="submit"  value="Add New Customer">
+        <% if(customerExists) { %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span></button> 
+          <%= customerExists %>
+        </div>
+        <% } %>
+          <form action="/signup" method="post">    
+          	<h1>Add New Customer</h1>
+            <input class="form-control" autofocus="true" id="firstNameInput" type="text" required="true" placeholder="First Name" name="firstname"/> 
+			      <input class="form-control" autofocus="false" id="lastNameInput" type="text" required="true" placeholder="Last Name" name="lastname"/>
+			      <input class="form-control" id="addressInput" type="text" required="true" placeholder="Address" name="address"/>
+			      <input class="form-control" id="cityInput" type="text" required="true" placeholder="City" name="city"/>
+			      <input class="form-control" id="zipcodeInput" type="text" required="true" placeholder="Zip" name="zipcode"/>
+			      <input class="form-control" id="phoneNumberInput" type="text" required="true" placeholder="Phone Number" name="phonenumber"/>
+			      <input class="form-control" id="emailInput" required="true" type="email" name="email" placeholder="Email Address">  
+			      <input type="submit"  value="Add New Customer">
         	</form>
-        		<a id="homeIcon"href="/" style="font-size: 24px"><i class="fa fa-home"></i>Main Menu</a>
+        	<a id="homeIcon"href="/" style="font-size: 24px"><i class="fa fa-home"></i>Main Menu</a>
       	</div>
-    </div>
-
-   
-  </body>
+    </div> <!-- End main content container -->
   
-
+  </body> <!-- End Body -->
+  
 </html>
