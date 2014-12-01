@@ -2,25 +2,10 @@
 <html>
 	<head>
 		<% include partials/header.ejs %>
-
-		
-		<style>
-			.block {
-				position: absolute;
-				//background-image: url('../public/images/hank.jpg');
-				background-color: #abc;
-				opacity:0.1;
-				left: 50px;
-				width: 90px;
-				height: 90px;
-				margin: 5px;
-			}
-  </style>
 	
 	</head>
 	<body>
 		<h1 id='title'> Mike's Mowing Service </h1>
-		<img class="block" src="/images/hank.jpg" ></img>
 		<% if(customerSuccessfullyAdded) { %>
 		<div class="alert alert-info alert-dismissible" role="alert">
        		<button type="button" class="close" data-dismiss="alert">
@@ -47,17 +32,4 @@
 				<div class="col-md-4 choice"><a href='/customerInvoices'>Customer Invoices</a></div>
 			</div>	
 		</div>
-		<button id="left">&laquo;</button>
-		<button id="right">&raquo;</button>
-		
-	</body>
-	<script>
-	$( "#right" ).click(function() {
-  	$( ".block" ).animate({ "left": "+=50px" }, "slow" );
-	});
- 
-	$( "#left" ).click(function(){
-  	$( ".block" ).animate({ "left": "-=50px" }, "slow" );
-	});
-</script>
 </html>
