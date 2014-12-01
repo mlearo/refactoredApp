@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<% include partials/header.ejs%>
+	</head>
+		
+		
+		<body>
+			<h1 id='title'>  </h1><a href="/"><i class="fa fa-home"></i>Main Menu</a>
+			
+			<div  class='accordionOutline'>
+				<%technicians.forEach(function(tech){ %>
+				
+			
+		
+				
+			<div id='scheduleOutline'> 
+				<h3> Technician Name: <%= tech.technician_name %> </br>Work Week : <%= workweek %> </h3>
+				<%schedule.forEach(function(item){%>
+					<% if(item.technician_id === tech.technician_id){ %>
+			<p>
+				<table class='table table-striped' >
+					<tr>
+						<th class='columnSpacing'>Service Date</th>
+						<th class='columnSpacing'>Customer Name</th>
+						<th class='columnSpacing'>Customer Address</th>
+						<th class='columnSpacing'>Time</th>
+					</tr>
+					<tr >
+						<td id='serviceDate' class='columnSpacing'><%= item.service_date %></td>
+						<td id='customerName' class='columnSpacing'><%= item.customer_lastname %>, <%= item.customer_firstname %> </td>
+						<td id='customerAddress' class='columnSpacing'><%= item.customer_address %> </br> <%= item.customer_city %> </br> <%= item.customer_zipcode %></td>
+						<td id='serviceTime' class='columnSpacing'>TBD</td>
+					</tr>
+
+				</table>
+			</p>
+							
+				<% } %>
+			<% }) %>
+			</div>
+			<% }) %>
+						
+		</div>
+		
+	</body>
+</html>
